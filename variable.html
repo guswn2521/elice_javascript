@@ -2,6 +2,7 @@
 <body>
     <h1>Variable</h1>
     <script>
+        console.group('var')
         var a = 1;
         var b = 2;
         console.log(a+b);
@@ -9,9 +10,31 @@
         console.log(a+b);
     </script>
     <script>
+        
         let c = 1;
         let d = 2;
         console.log(c+d);
+        console.groupEnd('var');
+    </script>
+    <h1>변수의 효용</h1>
+    <script>
+        console.log(10000*0.1);  // 10000 : 만원, 0.1 :부가가치세
+        let 금액 = 10000;
+        let 부가세율 = 0.1;
+        console.log(금액*부가세율);
+    </script>
+    <h1>변수의 응용</h1>
+    <input type="button" value="name">
+    <script>
+        let nameButton = document.querySelector('input[type=button]');
+        console.log(nameButton.value);
+        nameButton.addEventListener(click, function(){
+            let name = prmpt('name:');
+        })
+        // console.log('안녕하세요' + name + '입니다. 지금까지 손현주였습니다.');
+        // console.log(name + '님 안녕하세요. ...이고잉...'+ name + '...입니다.'+name+'님 안녕히계세요.');
+        console.log(`${name}님 안녕하세요...이고잉...${name}...${name}님 안녕히계세요`);
+
     </script>
 </body>
 </html>
