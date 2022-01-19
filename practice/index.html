@@ -1,0 +1,47 @@
+<html>
+<body>
+    <h1><a href="index.html" id="link1"> WEB</a></h1>
+  <ol>
+    <li><a href="1.html">HTML</a></li>
+    <li><a href="1.html">CSS</a></li>
+    <li><a href="1.html">JavaScript</a></li>
+  </ol>
+  <h2>WEB</h2>
+  <p>
+      <ol>
+          <li>dark모드 버튼만들기 -> 조건문</li>
+          <li>a 태그들 한번에 textdecoration 없애기</li>
+          <li>프롬프트로 아이디입력받아서 버튼 value 바꾸기</li>
+          <li>3초마다 스크롤 무한히 내리기</li>
+          <li>배열 요소마다 li태그 씌우기</li>
+          <li>a 태그들 href 전체 출력하기</li>
+          <li>teachable machine으로 웹캠 밝기 인식하는 모델만들어서 dark모드 버튼에 적용하기</li>
+      </ol>
+  </p>
+  <input type="button" value="dark" onclick="
+    let target = document.querySelector('body');
+    
+    if(this.value === 'dark'){
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        asStyle('white');
+        this.value = 'light';
+    }else{
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        asStyle('black');
+        this.value = 'dark';
+    }
+  ">
+  <script>
+      function asStyle(color){
+        let as = document.querySelectorAll('a');
+        for(let i=0;i<as.length;i++){
+          as[i].style.color = color;
+          as[i].style.textDecoration = 'none';
+      }
+      }
+      
+  </script>
+</body>
+</html>
