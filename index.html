@@ -8,15 +8,29 @@
   
 </head>
 <body>
-  
   <input type="button" value="dark" onclick="
-    target.style.backgroundColor='black';
-    target.style.color='white';
-    ">
-    <input type="button" value="light" onclick="
-    target.style.backgroundColor='white';
-    target.style.color='black';
-    ">
+      let target = document.querySelector('body');
+    if(this.value === 'dark'){
+      // 만약 this.value 가 dark라면
+      target.style.backgroundColor='black';
+      target.style.color='white';
+      
+      //this.value를 day로 변경
+      this.value = 'day';
+    }else{
+      //만약 아니라면 
+      target.style.backgroundColor='white';
+      target.style.color='black';
+      //this.value를 night로 변경
+      this.value='dark';
+    }
+
+
+
+
+
+  ">
+
   <h1><a href="index.html" id="link1"> WEB</a></h1>
   <ol>
     <li><a href="1.html">HTML</a></li>
@@ -27,12 +41,6 @@
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo totam ullam nesciunt ex odio corporis necessitatibus ratione, harum possimus doloribus nemo laborum voluptatibus aut aliquam culpa? Debitis in ut similique?</p>
 
   <script>
-    let target = document.querySelector('body');
-    console.log(target);
-  </script>
-  <script src="index.js">
-    
-
   </script>
 </body>
 </html>
