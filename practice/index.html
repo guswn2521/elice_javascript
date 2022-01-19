@@ -6,18 +6,27 @@
     <li><a href="1.html">CSS</a></li>
     <li><a href="1.html">JavaScript</a></li>
   </ol>
-  <h2>WEB</h2>
+  <h2>JavaScript</h2>
   <p>
       <ol>
-          <li>dark모드 버튼만들기 -> 조건문</li>
-          <li>a 태그들 한번에 textdecoration 없애기</li>
-          <li>프롬프트로 아이디입력받아서 버튼 value 바꾸기</li>
-          <li>3초마다 스크롤 무한히 내리기</li>
-          <li>배열 요소마다 li태그 씌우기</li>
-          <li>a 태그들 href 전체 출력하기</li>
-          <li>teachable machine으로 웹캠 밝기 인식하는 모델만들어서 dark모드 버튼에 적용하기</li>
+          <li><input type="checkbox" checked>dark모드 버튼만들기 -> 조건문</li>
+          <li><input type="checkbox" checked>a 태그들 한번에 text_decoration 없애기</li>
+          <li><input type="checkbox" checked>a 태그들 href 전체 출력하기</li>
+          <li><input type="checkbox" checked>함수만들기</li>
+          <li><input type="checkbox" checked>프롬프트로 아이디입력받아서 버튼 value 바꾸기</li>
+          <li><input type="checkbox" checked>3초마다 스크롤 무한히 내리기</li>
+          <li><input type="checkbox" checked>배열 요소마다 li태그 씌우기</li>
+          <li><input type="checkbox">teachable machine으로 웹캠 밝기 인식하는 모델만들어서 dark모드 버튼에 적용하기</li>
       </ol>
   </p>
+  <input type="button" value="아이디" onclick="
+    let name = prompt('아이디?');
+    if(name === 'nickname'){
+        this.value = `${name} 님 안녕하세요.`
+    }else{
+        this.value = `${name} 님 누구세요.`
+    }
+  ">
   <input type="button" value="dark" onclick="
     let target = document.querySelector('body');
     
@@ -41,7 +50,25 @@
           as[i].style.textDecoration = 'none';
       }
       }
-      
+      function scrollInfinite(interval, height){
+        setInterval(()=>{
+            scrollTo(0,height);
+        },interval*1000);
+      }
+      function coverArrayWithLi(arr){
+          document.write('<ul>');
+        for(let i=0; i< arr.length; i++){
+            document.write(`<li>${arr[i]}</li>`);
+        }
+        document.write('</ul>');
+
+      }
+      function printHrefs(){
+          let linkarray = document.querySelectorAll('a');
+          for(let i=0; i<linkarray.length; i++){
+              console.log(i+1, linkarray[i].href);
+          }
+      }
   </script>
 </body>
 </html>
