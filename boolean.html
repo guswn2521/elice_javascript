@@ -15,5 +15,30 @@
 
         
     </script>
+    <h1>Conditional Statements</h1>
+    <script>
+        console.log(1);
+        if(true){
+            console.log(2);
+            console.log(3);
+        }
+        console.log(4);
+        console.log(1);
+        if(false){
+            console.log(2);
+            console.log(3);
+        }
+        console.log(4);
+    </script>
+    <h1>조건문의 응용</h1>
+    <input type="button" value="로그인" onclick="
+        let id = prompt('누구세요?');
+        if(id === 'dd'){
+            this.value = id + '님 안녕하세요!';
+        }else{
+            this.value='뉘슈?';
+        }
+    ">
+    
 </body>
 </html>
