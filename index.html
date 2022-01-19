@@ -8,35 +8,33 @@
   
 </head>
 <body>
-  <input type="button" value="dark" onclick="
+  <script>
+    function 주간야간토글(self){
       let target = document.querySelector('body');
       let arr = document.querySelectorAll('a');
-    if(this.value === 'dark'){
-      // 만약 this.value 가 dark라면
+    if(self.value === 'dark'){
+      // 만약 self.value 가 dark라면
       target.style.backgroundColor='black';
       target.style.color='white';
       for(let i=0;i<arr.length; i++){
-        arr[i].style.color = 'violet';
+        arr[i].style.color = 'white';
       }
-      //this.value를 day로 변경
-      this.value = 'day';
+      //self.value를 day로 변경
+      self.value = 'day';
     }else{
       //만약 아니라면 
       target.style.backgroundColor='white';
       target.style.color='black';
 
       for(let i=0;i<arr.length; i++){
-        arr[i].style.color = 'green';
+        arr[i].style.color = 'black';
       }
-      //this.value를 night로 변경
-      this.value='dark';
+      //self.value를 night로 변경
+      self.value='dark';
     }
-
-
-
-
-
-  ">
+    }
+  </script>
+  <input type="button" value="dark" id="daynight" onclick="주간야간토글(this)">
 
   <h1><a href="index.html" id="link1"> WEB</a></h1>
   <ol>
