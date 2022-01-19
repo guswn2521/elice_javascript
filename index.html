@@ -10,17 +10,24 @@
 <body>
   <input type="button" value="dark" onclick="
       let target = document.querySelector('body');
+      let arr = document.querySelectorAll('a');
     if(this.value === 'dark'){
       // 만약 this.value 가 dark라면
       target.style.backgroundColor='black';
       target.style.color='white';
-      
+      for(let i=0;i<arr.length; i++){
+        arr[i].style.color = 'violet';
+      }
       //this.value를 day로 변경
       this.value = 'day';
     }else{
       //만약 아니라면 
       target.style.backgroundColor='white';
       target.style.color='black';
+
+      for(let i=0;i<arr.length; i++){
+        arr[i].style.color = 'green';
+      }
       //this.value를 night로 변경
       this.value='dark';
     }
