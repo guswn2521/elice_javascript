@@ -1,0 +1,19 @@
+<html>
+
+<body>
+    <script>
+        for (let i = 0; i < 1000; i++) {
+            document.write(`<input type="button" onmouseover="
+            if(event.altKey){
+                event.target.style.backgroundColor = 'blue';
+                setTimeout(function(){event.target.style.backgroundColor = '';}, 2000)
+                }
+            if(event.ctrlKey){
+                event.target.style.backgroundColor = 'yellow';
+                }    
+            ">`);
+        }
+    </script>
+</body>
+
+</html>
