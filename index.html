@@ -10,32 +10,85 @@
 </head>
 
 <body>
-  <h1><a href="index.html" id="link1"> WEB</a></h1>
+  <header>
+    <h1><a href="index.html" onclick="
+        event.preventDefault();
+        mode = 'WELCOME';
+        Article();
+        // console.log(mode);
+      "> WEB</a></h1>
+  </header>
   <nav>
     <ol></ol>
   </nav>
-  <h2>WEB</h2>
-  <p>Hello WEB.
-  <p>
-    <script>
-      let topics = [
-        { id: 1, title: 'html', body: 'html is...' },
-        { id: 2, title: 'css', body: 'css is...' },
-        { id: 3, title: 'javascript', body: 'javascript is...' }
+  <article>
+    <h2>WEB</h2>
 
-      ]
+  </article>
+  <script>
+    let selectedId = null;
+    let mode = 'WELCOME';
+    let topics = [
+      { id: 1, title: 'html', body: 'html is...' },
+      { id: 2, title: 'css', body: 'css is...' },
+      { id: 3, title: 'javascript', body: 'javascript is...' }
 
-      // innerHTML, 함수로 정리하기.
-      function Nav() {
+    ];
 
-        let liTag = '';
-        for (let i = 0; i < topics.length; i++) {
-          liTag = liTag + `<li><a href="/read/${topics[i].id}">${topics[i].title}</a></li>`;
-        }
-        document.querySelector('ol').innerHTML = liTag;
+    // innerHTML, 함수로 정리하기.
+    function Nav() {
+
+      let liTag = '';
+      for (let i = 0; i < topics.length; i++) {
+        liTag = liTag + `<li>
+          <a href="/read/${topics[i].id}" onclick="
+          event.preventDefault();
+          mode = 'READ';
+          selectedId = ${topics[i].id};
+          Article();
+          ">
+            ${topics[i].title}
+          </a>
+        </li>`;
       }
-      Nav();
-    </script>
+      document.querySelector('ol').innerHTML = liTag;
+    }
+    Nav();
+
+    function Article() {
+      let articleTag = '';
+
+      if (mode === 'WELCOME') {
+        articleTag = `<h2>Welcome</h2>Hello, WEB`;
+      } else if (mode === 'READ') {
+        let title = '';
+        let body = '';
+        for (let i = 0; i < topics.length; i++) {
+          if (topics[i].id === selectedId) {
+            title = topics[i].title;
+            body = topics[i].body;
+            break;
+          }
+        }
+        articleTag = `<h2>${title}</h2>Hello, ${body}`;
+
+
+      }
+      document.querySelector('article').innerHTML = articleTag;
+    }
+    Article();
+    // function Article() {
+    //   let articleTag = '';
+    //   if (mode === 'WELCOME') {
+    //     articleTag = <h2>Welcome</h2>Hello, WEB;
+    //   } else if (mode === 'READ') {
+    //     articleTag = <h2>READ</h2>Hello, READ;
+    //   }
+    //   document.querySelector('article').innerHTML = articleTag;
+    // }
+    // Article();
+
+  </script>
 </body>
 
 </html>
