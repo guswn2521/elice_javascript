@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>WEB1</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <header>
+        <h1><a href="nav.html" onclick="
+                event.preventDefault();
+                mode = 'WELCOME';
+                Article();
+            ">WEB</a></h1>
+    </header>
+    <nav>
+        <ol></ol>
+    </nav>
+    <article>
+    </article>
+    <a href="/create" onclick="
+        e.preventDefault();
+        mode = 'WRITE';
+        Article();
+
+    ">create</a>
+    <script>
+        let selectedID = 1;
+        let mode = 'READ';
+        let topics = [
+            { id: 1, title: 'html', body: 'html is...' },
+            { id: 2, title: 'css', body: 'css is...' }
+
+        ]
+        function Article() {
+
+            let articleTag = '';
+            if (mode === 'WELCOME') {
+                articleTag = `<h2>Welcome</h2> Hello Web`;
+            } else if (mode === 'READ') {
+                for (let i = 0; i < topics.length; i++) {
+                    let t = topics[i];
+                    if (t.id === selectedID) {
+                        articleTag = `<h2>${t.title}</h2>${t.body}`;
+                    }
+                }
+            }
+            document.querySelector('article').innerHTML = articleTag;
+        }
+        Article();
+
+
+        function Nav() {
+            let liTag = '';
+            let ol = document.querySelector('nav>ol');
+            for (let i = 0; i < topics.length; i++) {
+                let topic = topics[i];
+                liTag = liTag + `<li><a href="/read/${topic.id}" onclick="
+                        event.preventDefault();
+                        mode = 'READ';
+                        selectedId = ${topic.id};
+                        Article();
+                    ">${topic.title}</a></li>`;
+            }
+            ol.innerHTML = liTag;
+        }
+        Nav();
+    </script>
+</body>
+
+</html>
